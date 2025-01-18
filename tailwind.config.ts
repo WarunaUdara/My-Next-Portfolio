@@ -11,6 +11,9 @@ export default {
   ],
   theme: {
   	extend: {
+		animation: {
+			'gradient': 'gradient 3s linear infinite',
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -57,7 +60,19 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		  keyframes: {
+			gradient: {
+			  '0%, 100%': {
+				'background-size': '200% 200%',
+				'background-position': 'left center'
+			  },
+			  '50%': {
+				'background-size': '200% 200%',
+				'background-position': 'right center'
+			  },
+			},
+		  }
   	}
   },
   plugins: [
@@ -76,6 +91,7 @@ export default {
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
     },
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
       require("tailwindcss-animate")
 ],
 } satisfies Config;

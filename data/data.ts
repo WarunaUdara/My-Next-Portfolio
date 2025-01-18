@@ -1,3 +1,4 @@
+"use client";
 export const navItemsData = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
