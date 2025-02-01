@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 import svgToDataUri from "mini-svg-data-uri";
-import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
+const {
+	default: flattenColorPalette,
+  } = require("tailwindcss/lib/util/flattenColorPalette");
 
 export default {
     darkMode: ["class"],
@@ -13,6 +16,7 @@ export default {
   	extend: {
 		animation: {
 			'gradient': 'gradient 3s linear infinite',
+			scroll:"scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
 		},
   		colors: {
   			background: 'hsl(var(--background))',
@@ -72,6 +76,11 @@ export default {
 				'background-position': 'right center'
 			  },
 			},
+			scroll: {
+				to: {
+				  transform: "translate(calc(-50% - 0.5rem))",
+				},
+			  },
 		  }
   	}
   },
